@@ -1,3 +1,5 @@
 {
-  "LockModule#SupplyChainMGMT": "0x58f6471dCc3c3dDaA2dB4cCd488C7AB3814884CE"
+  "LockModule#SupplyChainMGMT": "0x58f6471dCc3c3dDaA2dB4cCd488C7AB3814884CE",
+  "CartonNFTModule#CartonNFT": "0xeAec48AAf09566b4DE2d2dA7aaafb03D8AeCDe20",
+  "SupplyChainMGMTModule#SupplyChainMGMT": "0xb633D2d6D49E3B602CF6651C82Af0954CC47D294"
 }

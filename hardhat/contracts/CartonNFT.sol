@@ -17,9 +17,12 @@ contract CartonNFT is ERC721, Ownable {
     }
 
     uint256 private tokenIdCounter;
+    string status;
     mapping(uint256 => CartonAttributes) private cartonAttributes;
 
-    constructor(address initialOwner) ERC721("CartonNFT", "CNFT") Ownable(initialOwner){}
+    constructor(address initialOwner) ERC721("CartonNFT", "CNFT") Ownable(initialOwner){
+        status = "ignition";
+    }
 
     function mint(
         address to,
@@ -28,7 +31,7 @@ contract CartonNFT is ERC721, Ownable {
         string memory src,
         string memory dest,
         string memory currLoc
-    ) public onlyOwner returns (uint256) {
+    ) external returns (uint256) {
         uint256 newTokenId = tokenIdCounter;
         tokenIdCounter++;
         _safeMint(to, newTokenId);
@@ -36,8 +39,15 @@ contract CartonNFT is ERC721, Ownable {
         return newTokenId;
     }
 
-    function getCartonAttributes(uint256 tokenId) public view returns (CartonAttributes memory) {
-        return cartonAttributes[tokenId];
+    function getCartonAttributes(uint256 tokenId) external view returns (uint256, string memory, uint256, string memory, string memory, string memory, int256) {
+        CartonAttributes memory attributes = cartonAttributes[tokenId];
+        return (attributes.cartonId, attributes.name, attributes.weight, attributes.src, attributes.dest, attributes.currLoc, attributes.shipmentId);
+    }
+
+    // Deploy
+
+    function launch() public {
+        status = "lift-off";
     }
 
 }
